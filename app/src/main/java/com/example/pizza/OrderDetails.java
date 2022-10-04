@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class OrderDetails extends AppCompatActivity {
 
-
+///////OrderDetails activity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,36 +20,35 @@ public class OrderDetails extends AppCompatActivity {
         Bundle bundle = intent.getExtras();
         Order order = (Order) bundle.getSerializable("hello");
 
+        //show total price in OrderDetail activity
         TextView tv = (TextView) findViewById(R.id.totalorderprice);
         tv.setText("Total price = " + String.format("%.02f", order.total) + "$");
 
+        //show pizza size in OrderDetail activity
         TextView tvSize = (TextView) findViewById(R.id.orderSize);
         tvSize.setText("Size of the pizza: " + order.size);
 
+        //show customer's name
         TextView tvName = (TextView) findViewById(R.id.orderName);
         tvName.setText(order.name);
 
+        //show customer's address
         TextView tvAddress = (TextView) findViewById(R.id.orderAddress);
         tvAddress.setText(order.address);
 
+        //show customer's phone number
         TextView tvPhone = (TextView) findViewById(R.id.orderPhone);
         tvPhone.setText(order.phone);
 
+        //show customer's email
         TextView tvEmail = (TextView) findViewById(R.id.orderEmail);
         tvEmail.setText(order.email);
 
+        //show all the selected toppings
         TextView tvTopping1 = (TextView) findViewById(R.id.orderTopping1);
         tvTopping1.setText(String.join(", ", order.toppings));
 
-//        TextView tvTopping2 = (TextView) findViewById(R.id.orderTopping2);
-//        tvTopping2.setText(order.topping2);
-//
-//        TextView tvTopping3 = (TextView) findViewById(R.id.orderTopping3);
-//        tvTopping3.setText(order.topping3);
-//
-//        TextView tvTopping4 = (TextView) findViewById(R.id.orderTopping4);
-//        tvTopping4.setText(order.topping4);
-
+        //show delivery/pickup option
         TextView tvDelivery = (TextView) findViewById(R.id.orderDelivery);
         tvDelivery.setText(order.delivery);
 

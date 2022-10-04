@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rb1:
                 if (checked) {
                     price.setSize_price(7);
+                    //save order size to use in OrderDetail activity
                     order.size = "6\"";
                 }
                 break;
@@ -67,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+        //updating total price by changing size of the pizza
         total.setText("Total price: " + String.format("%.02f", order_price()) + "$");
 
 
@@ -81,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()){
             case R.id.checkBox4:
                 if (checked) {
+                    //update total price by selecting/deselecting toppings
                     price.setTop_price(2);
-                    order.topping1 = "- Bacon";
+                    //save order topping to use in OrderDetail activity
                     order.toppings.add("Bacon");
                 }
                 else {
                     price.setTop_price(0);
-                    order.topping1 = "";
                     order.toppings.remove("Bacon");
                 }
                 break;
@@ -95,12 +97,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.checkBox5:
                 if (checked) {
                     price.setMeat_price(2);
-                    order.topping2 = "- Steak";
                     order.toppings.add("Steak");
                 }
                 else {
                     price.setMeat_price(0);
-                    order.topping2 = "";
                     order.toppings.remove("Steak");
                 }
                 break;
@@ -108,12 +108,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.checkBox6:
                 if (checked) {
                     price.setCheese_price(2);
-                    order.topping3 = "- Extra Cheese";
                     order.toppings.add("Extra Cheese");
                 }
                 else {
                     price.setCheese_price(0);
-                    order.topping3 = "";
                     order.toppings.remove("Extra Cheese");
                 }
                 break;
@@ -121,12 +119,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.checkBox7:
                 if (checked) {
                     price.setVeggie_price(2);
-                    order.topping4 = "- Olive";
                     order.toppings.add("Olive");
                 }
                 else {
                     price.setVeggie_price(0);
-                    order.topping4 = "";
                     order.toppings.remove("Olive");
                 }
                 break;
@@ -152,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.switch3:
                 if (checked) {
+                    //update total by based on delivery option
                     price.setDelivery_price(4);
                     order.delivery = "Delivery option selected!";
                 }
@@ -167,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    //calculating total order price
     private double order_price(){
 
         total_price = price.getSize_price() + price.getMeat_price() + price.getTop_price() +
@@ -175,6 +173,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //submit order button and intent new activity
     public void submitOrderClick(View view) {
 
         order.total = order_price();

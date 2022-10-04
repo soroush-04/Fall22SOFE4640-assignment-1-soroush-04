@@ -1,5 +1,7 @@
 package com.example.pizza;
 
+////////Price class for order details
+
 public class Price {
 
     double size_price;
