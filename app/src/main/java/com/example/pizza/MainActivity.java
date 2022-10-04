@@ -96,10 +96,12 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     price.setMeat_price(2);
                     order.topping2 = "- Steak";
+                    order.toppings.add("Steak");
                 }
                 else {
                     price.setMeat_price(0);
                     order.topping2 = "";
+                    order.toppings.remove("Steak");
                 }
                 break;
 
@@ -107,10 +109,12 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     price.setCheese_price(2);
                     order.topping3 = "- Extra Cheese";
+                    order.toppings.add("Extra Cheese");
                 }
                 else {
                     price.setCheese_price(0);
                     order.topping3 = "";
+                    order.toppings.remove("Extra Cheese");
                 }
                 break;
 
@@ -118,10 +122,12 @@ public class MainActivity extends AppCompatActivity {
                 if (checked) {
                     price.setVeggie_price(2);
                     order.topping4 = "- Olive";
+                    order.toppings.add("Olive");
                 }
                 else {
                     price.setVeggie_price(0);
                     order.topping4 = "";
+                    order.toppings.remove("Olive");
                 }
                 break;
         }
@@ -173,6 +179,9 @@ public class MainActivity extends AppCompatActivity {
 
         order.total = order_price();
         order.name = ((EditText) findViewById(R.id.editTextTextPersonName)).getText().toString();
+        order.address = ((EditText) findViewById(R.id.editTextTextPostalAddress)).getText().toString();
+        order.phone = ((EditText) findViewById(R.id.editTextPhone)).getText().toString();
+        order.email = ((EditText) findViewById(R.id.editTextTextEmailAddress)).getText().toString();
 
         Intent intent = new Intent(getBaseContext(), OrderDetails.class);
         Bundle bundle = new Bundle();

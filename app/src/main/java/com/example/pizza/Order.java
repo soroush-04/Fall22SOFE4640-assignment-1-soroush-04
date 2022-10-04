@@ -11,10 +11,10 @@ public class Order implements Serializable {
     String topping2;
     String topping3;
     String topping4;
-    String delivery;
+    String delivery = "Pickup order!";
     double total;
     String name;
     String address;
-    Integer phone;
+    String phone;
     String email;
 }
